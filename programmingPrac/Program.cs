@@ -451,38 +451,74 @@ namespace programmingPrac
             //    Console.WriteLine("entre correct value and signs");
             //}
 
-            Console.WriteLine("Enter your roll number");
-            int roll = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter your roll number");
+            //int roll = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter your name");
-            string names = Console.ReadLine();
+            //Console.WriteLine("Enter your name");
+            //string names = Console.ReadLine();
 
-            Console.WriteLine("Enter your  age");
-            int age = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter your  age");
+            //int age = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter your Batch");
-            string batchs = Console.ReadLine();
-
-
-
-            Program imran=new Program();
-            imran.settdata(roll, names, age, batchs);
-            imran.getdata();
-            
+            //Console.WriteLine("Enter your Batch");
+            //string batchs = Console.ReadLine();
 
 
 
-                Console.ReadKey();
+            //Program imran=new Program();
+            //imran.settdata(roll, names, age, batchs);
+            //imran.getdata();
+
+            Console.WriteLine("enter your id");
+            int empid = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("enter your name");
+            string empname = Console.ReadLine();
+
+            Console.WriteLine("enter your age");
+            int empage = int.Parse("enter your age");
+
+            Program employee = new Program(empid, empname, empage);
+            Console.WriteLine("employee id is  {0}", employee.empId);
+            Console.WriteLine("employee name is  {0}", employee.empName);
+            Console.WriteLine("employee age is  {0}", employee.empAge);
+
+            Console.ReadKey();
+
+            permenantEmploy asad = new permenantEmploy();
+            asad.empId = 1;
+
+
+            Console.WriteLine(asad.empId);
 
         }
 
+        public class visitingEmploy : employee
+        {
+            public int visitingSalary;
+            public int visitingHours;
+        }
+        public class permenantEmploy : employee
+        {
+            public int permenantSalary;
+            public int permenantHours;
+        }    
+
+        public class employee
+        {
+           public int empId;
+           public string empName;
+            public int Empage;
+            public int contact;
+
+        }
 
         int rollno;
         string namee;
         int age;
         string batch;
 
-        public void settdata(int rollnum,string stname,int stAge,string stBatch)
+        public void settdata(int rollnum, string stname, int stAge, string stBatch)
         {
             this.rollno = rollnum;
             this.namee = stname;
@@ -492,7 +528,7 @@ namespace programmingPrac
         }
         public void getdata()
         {
-            Console.WriteLine("your roll number number is {0}",this.rollno);
+            Console.WriteLine("your roll number number is {0}", this.rollno);
             Console.WriteLine("your name  is {0}", this.namee);
             Console.WriteLine("your age  is {0}", this.age);
             Console.WriteLine("your batch is {0}", this.batch);
@@ -507,7 +543,7 @@ namespace programmingPrac
         public static void add(int num1, int num2)
         {
             int result = num1 + num2;
-            Console.WriteLine("Sum of {0} and {1} are:{2}",num1 ,num2,result);
+            Console.WriteLine("Sum of {0} and {1} are:{2}", num1, num2, result);
         }
 
         public void name(string fname, string lname)
@@ -516,9 +552,9 @@ namespace programmingPrac
             Console.WriteLine("your full name is " + fullName);
         }
 
-        public static void showAgeName(string name,int age)
+        public static void showAgeName(string name, int age)
         {
-            Console.WriteLine("your name is "+name);
+            Console.WriteLine("your name is " + name);
             Console.WriteLine("your age is " + age);
 
         }
@@ -546,5 +582,28 @@ namespace programmingPrac
             Console.WriteLine("division result is " + result);
 
         }
+
+        int empId;
+        string empName;
+        int empAge;
+        public Program(int empId, string empName, int empAge)
+        {
+            this.empId = empId;
+            this.empName = empName;
+            this.empAge = empAge;
+        }
+
+        public int getEmpId()
+        {
+            return this.empId;
+        }
+        public string getName()
+        {
+            return this.empName;
+        }
+        public int getAge()
+        {
+            return this.empAge;
+        }
     }
-}
+    }
